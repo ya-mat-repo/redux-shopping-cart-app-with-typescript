@@ -1,0 +1,58 @@
+src/
+ ├─ app/
+ │   ├─ layout.tsx          # 全ページ共通のレイアウト
+ │   ├─ page.tsx            # ルートページ
+ │   ├─ loading.tsx         # SuspenseローディングUI
+ │   ├─ error.tsx           # エラーページ
+ │   ├─ not-found.tsx       # 404ページ
+ │   ├─ (routes)/           # 各ルート（グルーピングに使用）
+ │   │   ├─ dashboard/
+ │   │   │   ├─ page.tsx
+ │   │   │   ├─ layout.tsx
+ │   │   │   ├─ components/
+ │   │   │   │   ├─ containers/
+ │   │   │   │   │   ├─ UserListContainer.tsx     # ロジック側
+ │   │   │   │   │   └─ ChartContainer.tsx
+ │   │   │   │   └─ presentations/
+ │   │   │   │       ├─ UserList.tsx              # UI側
+ │   │   │   │       └─ Chart.tsx
+ │   │   │   ├─ settings/
+ │   │   │   │   └─ page.tsx
+ │   │   └─ auth/
+ │   │       ├─ login/
+ │   │       │   └─ page.tsx
+ │   │       └─ register/
+ │   │           └─ page.tsx
+ │   └─ api/
+ │       ├─ users/
+ │       │   └─ route.ts    # API Routes (Edge対応)
+ │       └─ posts/
+ │           └─ route.ts
+ │
+ ├─ components/             # 再利用可能なUIコンポーネント
+ │   ├─ ui/
+ │   │   ├─ Button.tsx
+ │   │   └─ Input.tsx
+ │   └─ layout/
+ │       └─ Header.tsx
+ │
+ ├─ hooks/                  # カスタムフック
+ │   └─ useAuth.ts
+ │
+ ├─ lib/                    # 汎用ロジック（APIクライアント、認証処理など）
+ │   ├─ apiClient.ts
+ │   ├─ auth.ts
+ │   └─ utils.ts
+ │
+ ├─ store/                  # 状態管理（Recoil, Jotai, Redux Toolkitなど）
+ │   └─ userAtom.ts
+ │
+ ├─ styles/                 # グローバル・モジュールCSS
+ │   ├─ globals.css
+ │   └─ variables.css
+ │
+ ├─ types/                  # 型定義（TypeScript用）
+ │   └─ index.d.ts
+ │
+ └─ config/                 # 設定ファイル（環境変数、定数など）
+     └─ env.ts

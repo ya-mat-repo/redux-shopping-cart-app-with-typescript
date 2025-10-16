@@ -1,0 +1,79 @@
+src/
+ ├─ app/
+ │   ├─ layout.tsx                # 全ページ共通レイアウト（ヘッダー・フッターなど）
+ │   ├─ page.tsx                  # トップページ（例：LPやDashboardリンク）
+ │   ├─ loading.tsx               # Suspense中のローディングUI
+ │   ├─ error.tsx                 # 全体エラーハンドリング
+ │   ├─ not-found.tsx             # 404ページ
+ │   │
+ │   ├─ (auth)/                   # 認証ルートグループ
+ │   │   ├─ login/
+ │   │   │   └─ page.tsx
+ │   │   ├─ register/
+ │   │   │   └─ page.tsx
+ │   │   └─ forgot-password/
+ │   │       └─ page.tsx
+ │   │
+ │   ├─ (dashboard)/              # ログイン後の管理エリア
+ │   │   ├─ layout.tsx            # ダッシュボード専用レイアウト
+ │   │   ├─ page.tsx              # /dashboard トップページ
+ │   │   ├─ projects/
+ │   │   │   ├─ page.tsx
+ │   │   │   └─ [id]/
+ │   │   │       ├─ page.tsx
+ │   │   │       └─ settings/
+ │   │   │           └─ page.tsx
+ │   │   ├─ users/
+ │   │   │   └─ page.tsx
+ │   │   └─ settings/
+ │   │       └─ page.tsx
+ │   │
+ │   └─ api/                      # Route Handlers（Next.js API）
+ │       ├─ auth/
+ │       │   └─ route.ts
+ │       └─ users/
+ │           └─ route.ts
+ │
+ ├─ components/
+ │   ├─ ui/                       # 汎用UI（Button, Modalなど）
+ │   ├─ layout/                   # Header, Sidebarなど画面構成
+ │   ├─ forms/                    # react-hook-formなどフォーム系
+ │   └─ features/                 # 特定ドメイン機能単位（例：ProjectCardなど）
+ │
+ ├─ hooks/
+ │   ├─ useAuth.ts                # 認証関連のカスタムフック
+ │   ├─ useModal.ts
+ │   └─ useToast.ts
+ │
+ ├─ lib/
+ │   ├─ api/                      # APIクライアント（REST/GraphQL）
+ │   │   ├─ client.ts
+ │   │   ├─ userApi.ts
+ │   │   └─ projectApi.ts
+ │   ├─ auth.ts                   # トークン管理・認証チェック
+ │   ├─ fetcher.ts                # SWRやReact Queryのfetcher
+ │   └─ utils.ts
+ │
+ ├─ store/
+ │   ├─ userStore.ts              # グローバルなユーザー情報
+ │   ├─ uiStore.ts                # モーダルやテーマの状態
+ │   └─ projectStore.ts
+ │
+ ├─ styles/
+ │   ├─ globals.css
+ │   ├─ theme.ts                  # MUI or Tailwindテーマ設定
+ │   └─ variables.css
+ │
+ ├─ types/
+ │   ├─ api.ts                    # APIレスポンス型
+ │   ├─ user.ts
+ │   ├─ project.ts
+ │   └─ index.d.ts
+ │
+ ├─ config/
+ │   ├─ env.ts                    # 環境変数ラッパ
+ │   ├─ constants.ts              # 共通定数
+ │   └─ routes.ts                 # ルート定義
+ │
+ ├─ middleware.ts                 # 認証やリダイレクト制御
+ └─ next.config.js
