@@ -1,13 +1,13 @@
 'use client';
 
-import { useDispatch, useSelector } from 'react-redux';
 import CartItem from '@/app/(feature)/cart/CartItem';
-import { cartItemProps, cartItems } from '@/app/(feature)/cart/cartItems';
+import { cartItemProps } from '@/app/(feature)/cart/cartItems';
 import { openModal } from '../modal/ModalSlice';
+import { useAppDispatch, useAppSelector } from '@/app/hooks/store';
 
 const CartContainers = () => {
-  const dispatch = useDispatch();
-  const { amount, cartItems, total } = useSelector((store) => store.cart);
+  const dispatch = useAppDispatch();
+  const { amount, cartItems, total } = useAppSelector((store) => store.cart);
   if (amount < 1) {
     return (
       <section className="cart">
@@ -32,7 +32,7 @@ const CartContainers = () => {
         <hr />
         <div className="cart-total">
           <h4>
-            合計 <span>{total}円</span>
+            合計 <span>{total.toLocaleString()}円</span>
           </h4>
         </div>
         <button className="btn clear-btn" onClick={() => dispatch(openModal())}>
